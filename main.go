@@ -10,9 +10,8 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var db *sql.DB
-
 func main() {
+	var db *sql.DB
 
 	err := godotenv.Load()
 
@@ -20,7 +19,7 @@ func main() {
 		log.Fatalf("Error loading env %v", err)
 	}
 
-	db := controller.ConnectDB()
+	db = controller.ConnectDB()
 
 	server := controller.NewServer(db)
 	controller.MigrateDB(db)
