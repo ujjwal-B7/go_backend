@@ -69,10 +69,18 @@ type Futsal struct {
 
 type FutsalUsecaseInterface interface {
 	// GetBookingsByDateTimeAndName(date, time, futsal string) (*[]BookFutsal, error)
+	GetAllFutsals() (*[]Futsal, error)
 	SaveFutsal(futsal Futsal) error
+	UpdateFutsal(id uint64, futsal Futsal) (*Futsal, error)
+	UpdateFutsalFields(id uint64, futsal Futsal) (*Futsal, error)
+	DeleteFutsal(id uint64) error
 }
 
 type FutsalRepositoryInterface interface {
 	// GetBookingsByDateTimeAndName(date, time, futsal string) (*[]BookFutsal, error)
+	GetAllFutsals() (*[]Futsal, error)
 	SaveFutsal(futsal Futsal) error
+	UpdateFutsal(id uint64, futsal Futsal) (*Futsal, error)
+	UpdateFutsalFields(id uint64, futsal Futsal) (*Futsal, error)
+	DeleteFutsal(id uint64) error
 }
